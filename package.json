@@ -6,7 +6,7 @@
   "author": "higordiego <higordiegoti@gmail.com>",
   "license": "MIT",
   "scripts": {
-    "docker:security": "snyk test --docker node:12-alpine --file=DockerFile >> security-docker.log"
+    "docker:security": "npx snyk test --docker node:12-alpine --file=DockerFile >> security-docker.log"
   },
   "devDependencies": {
     "@commitlint/cli": "^8.3.4",
@@ -17,6 +17,7 @@
     "jest": "^26.0.1",
     "lint-staged": "^9.5.0",
     "sequelize-cli": "^6.2.0",
+    "snyk": "^1.372.0",
     "standard": "^14.3.1"
   },
   "config": {
