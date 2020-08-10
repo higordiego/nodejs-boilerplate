@@ -3,17 +3,17 @@ version: '3.4'
 services:
   sql-server-db:
     container_name: sql-server-db
-    image: microsoft/mssql-server-linux:2017-latest
+    image: mcr.microsoft.com/mssql/server:2019-latest
     ports:
       - 1433:1433
     environment:
       SA_PASSWORD: "123@dev"
       ACCEPT_EULA: "Y"
 
-  nodejs-boilerplate:
-    image: nodejs-boilerplate
-    build: .
-    environment:
-      NODE_ENV: production
-    ports:
-      - 3000:3000
+  # nodejs-boilerplate:
+  #   image: nodejs-boilerplate
+  #   build: .
+  #   environment:
+  #     NODE_ENV: production
+  #   ports:
+  #     - 3000:3000
