@@ -5,6 +5,9 @@
   "repository": "git@github.com:higordiego/nodejs-boilerplate.git",
   "author": "higordiego <higordiegoti@gmail.com>",
   "license": "MIT",
+  "scripts": {
+    "docker:security": "snyk test --docker node:12-alpine --file=DockerFile >> deploy-log.log"
+  },
   "devDependencies": {
     "@commitlint/cli": "^8.3.4",
     "@commitlint/config-conventional": "^8.3.4",
