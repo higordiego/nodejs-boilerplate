@@ -6,6 +6,7 @@
   "author": "higordiego <higordiegoti@gmail.com>",
   "license": "MIT",
   "scripts": {
+    "start": "node index.js",
     "docker:security": "npx snyk test --docker node:12-alpine --file=DockerFile >> security-docker.log"
   },
   "devDependencies": {
