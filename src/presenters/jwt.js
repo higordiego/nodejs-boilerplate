@@ -44,7 +44,7 @@ exports.validateAuthorization = async (req, res, next) => {
 
     return next()
   } catch (error) {
-    return res.status(401).json(error)
+    return res.status(401).json(tokenInvalidError)
   }
 }
 

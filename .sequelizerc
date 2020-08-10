@@ -1,0 +1,9 @@
+require('dotenv').config()
+const path = require('path');
+
+module.exports = {
+  'config': path.resolve('src/database/mysql/config', 'index.js'),
+  'models-path': path.resolve('src/database/mysql', 'models'),
+  'seeders-path': path.resolve('src/database/mysql', 'seeders'),
+  'migrations-path': path.resolve('src/database/mysql', 'migrations'),
+};

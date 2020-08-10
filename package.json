@@ -13,6 +13,7 @@
     "husky": "^4.2.5",
     "jest": "^26.0.1",
     "lint-staged": "^9.5.0",
+    "sequelize-cli": "^6.2.0",
     "standard": "^14.3.1"
   },
   "config": {
@@ -26,6 +27,7 @@
     ]
   },
   "dependencies": {
+    "@sentry/node": "^5.20.1",
     "body-parser": "^1.19.0",
     "compression": "^1.7.4",
     "cors": "^2.8.5",
@@ -34,6 +36,8 @@
     "express-validator": "^6.6.1",
     "helmet": "^4.0.0",
     "http": "^0.0.1-security",
-    "morgan": "^1.10.0"
+    "jsonwebtoken": "^8.5.1",
+    "morgan": "^1.10.0",
+    "sequelize": "^6.3.4"
   }
 }
