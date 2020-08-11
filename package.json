@@ -44,8 +44,10 @@
     "http": "^0.0.1-security",
     "jsinspect": "^0.12.7",
     "jsonwebtoken": "^8.5.1",
+    "mongodb": "^3.6.0",
     "morgan": "^1.10.0",
     "newrelic": "^6.11.0",
+    "saslprep": "^1.0.3",
     "sequelize": "^6.3.4",
     "tedious": "^9.1.0"
   }
