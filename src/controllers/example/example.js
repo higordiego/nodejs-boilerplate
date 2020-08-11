@@ -5,7 +5,6 @@ exports.path = '/example'
 exports.method = 'get'
 exports.middleware = [validateBodyExample, validateErrorBody]
 exports.authenticate = true
-exports.database = false
 
 exports.handler = async (req, res) => {
   return res.status(200).json()
