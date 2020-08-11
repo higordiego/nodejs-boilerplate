@@ -1,0 +1,16 @@
+# Sentry.io
+SENTRY_URL=""
+
+# Token Secret Generate Password | Token
+TOKEN_SECRET=""
+
+# Database
+DATABASE_TYPE="mssql"
+DATABASE_ORM_TYPE="sql"
+
+# PORT Service
+PORT="3000"
+
+# New Relic
+NEWRELIC_APPLICATION_NAME=""
+NEWRELIC_LICENSE_KEY=""
