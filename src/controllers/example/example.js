@@ -6,6 +6,6 @@ exports.method = 'get'
 exports.middleware = [validateBodyExample, validateErrorBody]
 exports.authenticate = true
 
-exports.handler = async (req, res) => {
+exports.handler = async (_, res) => {
   return res.status(200).json()
 }
