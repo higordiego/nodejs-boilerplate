@@ -2,6 +2,7 @@
     "*.js": [
         "standard --fix",
         "git add .",
-        "jsinspect"
+        "jsinspect",
+        "yarn run snyk:api"
     ]
 }

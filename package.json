@@ -7,6 +7,7 @@
   "license": "MIT",
   "scripts": {
     "start": "node index.js",
+    "snyk:api": "snyk test --yarn-workspaces  --detection-depth=4 --strict-out-of-sync=false",
     "docker:security": "npx snyk test --docker node:12-alpine --file=DockerFile >> security-docker.log"
   },
   "devDependencies": {
