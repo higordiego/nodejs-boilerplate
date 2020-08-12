@@ -7,8 +7,8 @@
   "license": "MIT",
   "scripts": {
     "start": "node index.js",
-    "start:database": "docker-compose -f docker-compose-database.yml -d --remove-orphans",
-    "start:develop": "docker-compose docker-compose-api.yml up -d --remove-orphans",
+    "start:database": "docker-compose -f docker-compose-database.yml up -d",
+    "start:develop": "docker-compose docker-compose-api.yml up -d",
     "snyk:api": "snyk test --yarn-workspaces  --detection-depth=4 --strict-out-of-sync=false",
     "docker:security": "npx snyk test --docker node:12-alpine --file=DockerFile >> security-docker.log"
   },
