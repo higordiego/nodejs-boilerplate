@@ -10,7 +10,7 @@ const parseObject = (list, dir) => list.reduce((acc, value) => {
   return acc
 }, [])
 
-const generateRoute = (list, app, models) => list.map(val => {
+const generateRoute = (list, app) => list.map(val => {
   const c = require(val.dir)
   let args = [`/api${c.path}`]
   if (c.authenticate) args = args.concat(validateAuthorization)
