@@ -2,11 +2,12 @@ version: '3.4'
 
 services:
   postgres:
-    image: postgres:12
+    image: postgres:12-alpine
     container_name: "postgres-boilerplate"
     environment:
       - POSTGRES_DB=boilerplate
       - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=postgres
       - TZ=GMT
     volumes:
       - "./data/postgres:/var/lib/postgresql/data"
@@ -20,11 +21,3 @@ services:
       - "./data/redis:/data"
     ports:
       - 6379:6379
-
-  nodejs-boilerplate:
-    image: nodejs-boilerplate
-    build: .
-    environment:
-      NODE_ENV: production
-    ports:
-      - 3000:3000
