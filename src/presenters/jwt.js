@@ -2,19 +2,9 @@
 const jwt = require('jsonwebtoken')
 const tokenInvalidError = { errors: [{ title: 'Token inválido!', message: 'Token informado é inválido!' }] }
 
-/**
- * @function
- * @param  {string} token
- * @return {Promise}
- */
-const decodedTokenJwt = (token) => {
-  try {
-    const key = process.env.TOKEN_SECRET
-    const decoded = jwt.decode(token, key)
-    return decoded ? Promise.resolve(decoded) : Promise.reject(tokenInvalidError)
-  } catch (err) {
-    return Promise.reject(tokenInvalidError)
-  }
+const verifyTokenJWT = (token) => {
+  const key = process.env.TOKEN_SECRET
+  return jwt.verify(token, key)
 }
 
 /**
@@ -30,15 +20,17 @@ exports.validateAuthorization = async (req, res, next) => {
 
     if (!authHeader) return res.status(401).send({ errors: [{ title: 'Token inválido!', message: 'Token não informado!' }] })
 
-    const parts = authHeader.split(' ')
+    const splitedAuthHeader = authHeader.split(' ')
 
-    if (!parts.length === 2) return res.status(401).send({ errors: [{ title: 'Token inválido!', message: 'Erro no token!' }] })
+    if (splitedAuthHeader.length !== 2) return res.status(401).send({ errors: [{ title: 'Token inválido!', message: 'Erro no token!' }] })
 
-    const [scheme, token] = parts
+    const [prefix, token] = splitedAuthHeader
 
-    if (!/^Bearer$/i.test(scheme)) return res.status(401).send({ errors: [{ title: 'Token inválido!', message: 'Token mal formatado!' }] })
+    if (!/^Bearer$/i.test(prefix)) return res.status(401).send({ errors: [{ title: 'Token inválido!', message: 'Token mal formatado!' }] })
 
-    const userDecoder = await decodedTokenJwt(token)
+    if (!/^([a-zA-Z0-9_=]+)\.([a-zA-Z0-9_=]+)\.([a-zA-Z0-9_\-\\+\\/=]*)$/i.test(token)) return res.status(401).send({ errors: [{ title: 'Token inválido!', message: 'Token mal formatado!' }] })
+
+    const userDecoder = await verifyTokenJWT(token)
 
     req.user = userDecoder
 
@@ -54,7 +46,5 @@ exports.validateAuthorization = async (req, res, next) => {
  * @return {string}
  */
 exports.generateToken = (object) => {
-  const key = process.env.TOKEN_SECRET
-  const token = jwt.sign(object, key, { algorithm: 'HS256' })
-  return token
+  return jwt.sign(object, process.env.TOKEN_SECRET)
 }

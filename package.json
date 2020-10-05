@@ -52,6 +52,7 @@
     "newrelic": "^6.11.0",
     "saslprep": "^1.0.3",
     "sequelize": "^6.3.4",
+    "supertest": "^5.0.0",
     "tedious": "^9.1.0"
   }
 }
