@@ -50,9 +50,8 @@
     "mongodb": "^3.6.0",
     "morgan": "^1.10.0",
     "newrelic": "^6.11.0",
-    "saslprep": "^1.0.3",
     "sequelize": "^6.3.4",
-    "supertest": "^5.0.0",
-    "tedious": "^9.1.0"
+    "pg": "^8.3.0",
+    "pg-hstore": "^2.3.3"
   }
 }

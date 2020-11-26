@@ -19,7 +19,14 @@ exports.findAll = (collection, query) => models[collection].findAll(query)
  * @returns {Promise} Result - resultado da query ou stack de new Error()
  */
 
-exports.findOne = async (collection, query) => models[collection].findOne(query)
+exports.findAllPaginate = async (collection, query, pages) => {
+  const Model = models[collection]
+  const HelperPaginate = require('../../presenters/paginate')(Model)
+  const page = await HelperPaginate.countAll(pages, query)
+  return HelperPaginate.listAll(query)(page)
+}
+
+exports.findOne = (collection, query) => models[collection].findOne(query)
 
 /**
  * @param  {String} collection - O nome da colection que irá buscar no banco de dados
@@ -36,7 +43,7 @@ exports.create = (collection, data) => models[collection].create(data, { raw: tr
  * @returns {Promise} Result - resultado do update ou stack de new Error()
  */
 
-exports.update = async (collection, query, data) => models[collection].update(data, query)
+exports.update = (collection, query, data) => models[collection].update(data, query)
 
 /**
  * @function
@@ -45,4 +52,4 @@ exports.update = async (collection, query, data) => models[collection].update(da
  * @returns {Promise} Result - resultado do update ou stack de new Error()
  */
 
-exports.remove = async (collection, query) => models[collection].destroy(query)
+exports.remove = (collection, query) => models[collection].destroy(query)
